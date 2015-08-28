@@ -54,6 +54,22 @@ function DigitSet(singleDigit) {
       self.possibilities.push(str);
     };
 
+    this.isUncertain = function() {
+      if ( this.possibilities.length > 1 ) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    this.contains = function(digit) {
+      if ( this.possibilities.length === 1 && this.possibilities[0]  ===  digit ) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
     digitSet.forEach(addDigit);
   };
 };

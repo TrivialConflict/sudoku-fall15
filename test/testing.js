@@ -70,21 +70,26 @@ describe('digitsets testing', function() {
     var game = new Grid(testStr);
 
     it('Should return false', function() {
+      console.log(game.digitsets[80].possibilities);
+      console.log(game.digitsets[80].isUncertain());
       expect(game.digitsets[80].isUncertain()).to.equal(false);
     });
 
     it('Should return true', function() {
+      console.log(game.digitsets[5].possibilities);
+      console.log(game.digitsets[5].isUncertain());
       expect(game.digitsets[5].isUncertain()).to.equal(true);
     });
 
   });
 
-  // conatains
+  // contains
   describe('Test the .contains(digit) method', function() {
     var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
     var game = new Grid(testStr);
 
     it('Should return true', function() {
+      console.log(game.digitsets[2]);
       expect(game.digitsets[2].contains(8)).to.equal(true);
     });
 
