@@ -3,7 +3,7 @@ var expect = require('chai').expect;
 var Viewer = require('../viewer.js');
 
 //Hello - it's 12:13PM - I'm Pat
-describe('digitsets testing', function() {
+describe('Digitsets testing', function() {
 
   // Eliminate
   describe('Test the .eliminate(digit) method of a digitset', function() {
@@ -70,17 +70,12 @@ describe('digitsets testing', function() {
     var game = new Grid(testStr);
 
     it('Should return false', function() {
-      console.log(game.digitsets[80].possibilities);
-      console.log(game.digitsets[80].isUncertain());
       expect(game.digitsets[80].isUncertain()).to.equal(false);
     });
 
     it('Should return true', function() {
-      console.log(game.digitsets[5].possibilities);
-      console.log(game.digitsets[5].isUncertain());
       expect(game.digitsets[5].isUncertain()).to.equal(true);
     });
-
   });
 
   // contains
@@ -89,8 +84,7 @@ describe('digitsets testing', function() {
     var game = new Grid(testStr);
 
     it('Should return true', function() {
-      console.log(game.digitsets[2]);
-      expect(game.digitsets[2].contains(8)).to.equal(true);
+      expect(game.digitsets[2].contains("8")).to.equal(true);
     });
 
     it('Should return false', function() {

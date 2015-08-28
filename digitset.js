@@ -6,7 +6,7 @@ function DigitSet(singleDigit) {
   if (singleDigit === ".") {
      this.possibilities = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
    } else {
-     this.possibilities = [singleDigit];
+     this.possibilities = [singleDigit.toString()];
    }
 
   this.eliminate = function(digit) {
@@ -44,15 +44,18 @@ function DigitSet(singleDigit) {
       var location = self.possibilities.indexOf(str);
       if(location >= 0) {self.possibilities.splice(location, 1);}
     };
-
     digitSet.forEach(eliminateDigit);
   };
+
 
   this.addMult = function(digitSet) {
     var self = this;
     function addDigit(str) {
       self.possibilities.push(str);
     };
+    digitSet.forEach(addDigit);
+  };
+
 
     this.isUncertain = function() {
       if ( this.possibilities.length > 1 ) {
@@ -70,9 +73,8 @@ function DigitSet(singleDigit) {
       }
     };
 
-    digitSet.forEach(addDigit);
-  };
 };
+
 
 // console.log(DigitSet); // for testing only
 
