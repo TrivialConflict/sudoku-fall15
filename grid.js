@@ -16,7 +16,7 @@ function Grid(initString) {
 
 	this.colTokens = ["C0", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8"];
 
-	this.blockTokens = ["B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8"];
+	this.blockTokens = ["B0", "B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8"];
 
 	this.groupTokens = ["R0", "R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8", "C0", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "B0", "B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8"];
 

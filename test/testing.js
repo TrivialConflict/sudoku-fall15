@@ -198,7 +198,7 @@ describe('Digitsets testing', function() {
 
 describe('Grid testing', function() {
 
-  // getRow and getCol
+  // getRow, getCol and getBlock
   describe('Test getRow Method', function() {
     var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
     var game = new Grid(testStr);
@@ -226,7 +226,23 @@ describe('Grid testing', function() {
     it('Should return 5.', function() {
       expect(game.getCol(68)).to.equal('C5');
     });
+
+    it ('Should return  ', function(){
+      expect(game.getBlock(30)).to.equal('B4');
+    });
+
+    it ('Should return  ', function(){
+      expect(game.getBlock(80)).to.equal('B8');
+    });
+
+    it ('Should return  ', function(){
+      expect(game.getBlock(42)).to.equal('B5');
+    });
   });
+
+
+
+
 
 
   // toString
