@@ -199,7 +199,7 @@ describe('Digitsets testing', function() {
 describe('Grid testing', function() {
 
   // getRow, getCol and getBlock
-  describe('Test getRow Method', function() {
+  describe('Test getRow, get Block and getCol Method with parameters', function() {
     var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
     var game = new Grid(testStr);
 
@@ -242,6 +242,24 @@ describe('Grid testing', function() {
 
 
 
+
+
+  describe('Test getRow, getBlock and getCol with no parameters Method', function() {
+    var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
+    var game = new Grid(testStr);
+
+    it('Should return as an array', function() {
+      expect(game.getRow()).to.deep.equal(["R0", "R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8"]);
+    });
+
+    it('Should return as an array', function() {
+      expect(game.getCol()).to.deep.equal(["C0", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8"]);
+    });
+
+    it ('Should return as an array ', function(){
+      expect(game.getBlock()).to.deep.equal(["B0", "B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8"]);
+    });
+  });
 
 
 
