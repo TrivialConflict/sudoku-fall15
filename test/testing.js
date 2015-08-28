@@ -5,7 +5,7 @@ var Viewer = require('../viewer.js');
 //Hello - it's 12:13PM - I'm Pat
 describe('Digitsets testing', function() {
 
-  // Eliminate
+  // Eliminate(digit)
   describe('Test eliminate Method', function() {
     var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
     var game = new Grid(testStr);
@@ -20,6 +20,24 @@ describe('Digitsets testing', function() {
 
     it('Should return 8', function() {
       expect(game.digitsets[3].possibilities.length).to.equal(8);
+    });
+  });
+
+  // Eliminate(digitSet)
+  describe('Test eliminate Method', function() {
+    var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
+    var game = new Grid(testStr);
+
+    before(function() {
+      game.digitsets[3].eliminate( [ "2" , "6" , "8" ] );
+    });
+
+    it('Should return 3', function() {
+      expect(game.digitsets[3].possibilities.indexOf("6")).to.equal(-1);
+    });
+
+    it('Should return 4', function() {
+      expect(game.digitsets[3].possibilities.length).to.equal(6);
     });
   });
 
@@ -63,6 +81,47 @@ describe('Digitsets testing', function() {
       expect(game.digitsets[0].toArray()).to.be.a("array");
     });
   });
+
+
+  // Add(digit)
+  describe('Test add(digit) Method', function() {
+    var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
+    var game = new Grid(testStr);
+
+    before(function() {
+      game.digitsets[1].add("7");
+    });
+
+    it('Should return 1', function() {
+      expect(game.digitsets[1].possibilities.indexOf("7")).to.equal(1);
+    });
+
+    it('Should return 2', function() {
+      expect(game.digitsets[1].possibilities.length).to.equal(2);
+    });
+  });
+
+  // Add(digitSet)
+  describe('Test add(digitSet) Method', function() {
+    var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
+    var game = new Grid(testStr);
+
+    before(function() {
+      game.digitsets[1].add([ "2" , "9" ]);
+    });
+
+    it('Should return 2', function() {
+      expect(game.digitsets[1].possibilities.indexOf("9")).to.equal(2);
+    });
+
+    it('Should return 3', function() {
+      expect(game.digitsets[1].possibilities.length).to.equal(3);
+    });
+  });
+
+
+
+
 
   // isUncertain
   describe('Test isUncertain Method', function() {

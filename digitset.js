@@ -9,9 +9,21 @@ function DigitSet(singleDigit) {
      this.possibilities = [singleDigit.toString()];
    }
 
-  this.eliminate = function(digit) {
-    var location = this.possibilities.indexOf(digit);
-    if(location >= 0) {this.possibilities.splice(location, 1);}
+  this.eliminate = function(input) {
+    if ( typeof input === "object" ) {
+
+      var self = this;
+      function eliminateDigit(str) {
+        var location = self.possibilities.indexOf(str);
+        if(location >= 0) {
+          self.possibilities.splice(location, 1);
+        }
+      };
+      input.forEach(eliminateDigit);
+    } else {
+      var location = this.possibilities.indexOf(input);
+      if(location >= 0) {this.possibilities.splice(location, 1);}
+    }
   };
 
   this.size = function() {
@@ -26,8 +38,16 @@ function DigitSet(singleDigit) {
     return this.possibilities;
   };
 
-  this.add = function(digit) {
-    this.possibilities.push(digit);
+  this.add = function(input) {
+    if ( typeof input === "object" ) {
+      var self = this;
+      function addDigit(str) {
+        self.possibilities.push(str);
+      };
+      input.forEach(addDigit);
+    } else {
+        this.possibilities.push(input);
+    }
   };
 
   this.contains = function(digit) {
@@ -37,25 +57,6 @@ function DigitSet(singleDigit) {
   this.set = function(arrayOfDigits) {
     this.possibilities = arrayOfDigits;
   };
-
-  this.eliminateMult = function(digitSet) {
-    var self = this;
-    function eliminateDigit(str) {
-      var location = self.possibilities.indexOf(str);
-      if(location >= 0) {self.possibilities.splice(location, 1);}
-    };
-    digitSet.forEach(eliminateDigit);
-  };
-
-
-  this.addMult = function(digitSet) {
-    var self = this;
-    function addDigit(str) {
-      self.possibilities.push(str);
-    };
-    digitSet.forEach(addDigit);
-  };
-
 
     this.isUncertain = function() {
       if ( this.possibilities.length > 1 ) {
