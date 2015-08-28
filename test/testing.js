@@ -6,7 +6,7 @@ var Viewer = require('../viewer.js');
 describe('Digitsets testing', function() {
 
   // Eliminate
-  describe('Test the .eliminate(digit) method of a digitset', function() {
+  describe('Test eliminate Method', function() {
     var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
     var game = new Grid(testStr);
 
@@ -25,7 +25,7 @@ describe('Digitsets testing', function() {
 
 
   // Size
-  describe('Test the .size() method of a digitset instance', function() {
+  describe('Test size Method', function() {
     var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
     var game = new Grid(testStr);
 
@@ -44,7 +44,7 @@ describe('Digitsets testing', function() {
 
 
   // toString
-  describe('Test the .toString() method', function() {
+  describe('Test toString Method', function() {
     var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
     var game = new Grid(testStr);
 
@@ -55,7 +55,7 @@ describe('Digitsets testing', function() {
 
 
   // toArray
-  describe('Test the .toArray() method', function() {
+  describe('Test toArray Method', function() {
     var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
     var game = new Grid(testStr);
 
@@ -65,7 +65,7 @@ describe('Digitsets testing', function() {
   });
 
   // isUncertain
-  describe('Test the .isUncertain() method', function() {
+  describe('Test isUncertain Method', function() {
     var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
     var game = new Grid(testStr);
 
@@ -79,7 +79,7 @@ describe('Digitsets testing', function() {
   });
 
   // contains
-  describe('Test the .contains(digit) method', function() {
+  describe('Test contains Method', function() {
     var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
     var game = new Grid(testStr);
 
@@ -214,7 +214,7 @@ describe('Grid testing', function() {
 
 //testView
 describe ('Test viewer Methods', function(){
-  describe ('Test viewer.showCertain Method', function(){
+  describe ('Test showCertain Method', function(){
     var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
     var game = new Grid(testStr);
     var viewer = new Viewer(game);
@@ -240,7 +240,7 @@ describe ('Test viewer Methods', function(){
     });
   });
 
-  describe ('Test viewer.showHint Method for a cell with 9 possibilities.', function(){
+  describe ('Test showHint Method', function(){
     var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
     var game = new Grid(testStr);
     var viewer = new Viewer(game);
@@ -256,7 +256,7 @@ describe ('Test viewer Methods', function(){
     });
   });
 
-  describe ('Test viewer.showHint Method for a cell with 9 possibilities.', function(){
+  describe ('Test showHint Method', function(){
     var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
     var game = new Grid(testStr);
     var viewer = new Viewer(game);
