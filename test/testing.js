@@ -6,7 +6,7 @@ var Viewer = require('../viewer.js');
 describe('digitsets testing', function() {
 
   // Eliminate
-  describe('Test the eliminate method of a digitset', function() {
+  describe('Test the .eliminate(digit) method of a digitset', function() {
     var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
     var game = new Grid(testStr);
 
@@ -44,7 +44,7 @@ describe('digitsets testing', function() {
 
 
   // toString
-  describe('Test the toString() method', function() {
+  describe('Test the .toString() method', function() {
     var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
     var game = new Grid(testStr);
 
@@ -55,7 +55,7 @@ describe('digitsets testing', function() {
 
 
   // toArray
-  describe('Test the toArray() method', function() {
+  describe('Test the .toArray() method', function() {
     var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
     var game = new Grid(testStr);
 
@@ -63,6 +63,38 @@ describe('digitsets testing', function() {
       expect(game.digitsets[0].toArray()).to.be.a("array");
     });
   });
+
+  // isUncertain
+  describe('Test the .isUncertain() method', function() {
+    var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
+    var game = new Grid(testStr);
+
+    it('Should return false', function() {
+      expect(game.digitsets[80].isUncertain()).to.equal(false);
+    });
+
+    it('Should return true', function() {
+      expect(game.digitsets[5].isUncertain()).to.equal(true);
+    });
+
+  });
+
+  // conatains
+  describe('Test the .contains(digit) method', function() {
+    var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
+    var game = new Grid(testStr);
+
+    it('Should return true', function() {
+      expect(game.digitsets[2].contains(8)).to.equal(true);
+    });
+
+    it('Should return false', function() {
+      expect(game.digitsets[4].contains(3)).to.equal(false);
+    });
+
+  });
+
+
 });
 
 
