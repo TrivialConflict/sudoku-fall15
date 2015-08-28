@@ -55,7 +55,10 @@ function DigitSet(singleDigit) {
   };
 
   this.set = function(arrayOfDigits) {
-    this.possibilities = arrayOfDigits;
+    if(this.possibilities.length > 1){
+       this.possibilities = arrayOfDigits;
+    }
+
   };
 
     this.isUncertain = function() {

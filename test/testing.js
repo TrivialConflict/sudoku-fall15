@@ -41,6 +41,45 @@ describe('Digitsets testing', function() {
     });
   });
 
+  // Set(digitSet)
+  describe('Test Set Method', function() {
+    var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
+    var game = new Grid(testStr);
+
+    before(function() {
+      game.digitsets[3].set( [ "2" , "6" , "8" ] );
+    });
+
+    it('Should return 3', function() {
+      expect(game.digitsets[3].possibilities.indexOf("6")).to.equal(1);
+    });
+
+    it('Should return 4', function() {
+      expect(game.digitsets[3].possibilities.length).to.equal(3);
+    });
+  });
+
+
+  // Set(digitSet)
+  describe('Test Set Method', function() {
+    var testStr = '158.2..6.2...8..9..3..7.8.2.6.74......4.6.7......19.5.4.9.3..2..2..5...8.7..9.413';
+    var game = new Grid(testStr);
+
+    before(function() {
+      game.digitsets[1].set( [ "2" , "6" , "8" ] );
+    });
+
+    it('Should return ["5"]', function() {
+      expect(game.digitsets[1].possibilities).to.deep.equal(["5"]);
+    });
+
+    it('Should return 1', function() {
+      expect(game.digitsets[1].possibilities.length).to.equal(1);
+    });
+  });
+
+
+
 
   // Size
   describe('Test size Method', function() {
